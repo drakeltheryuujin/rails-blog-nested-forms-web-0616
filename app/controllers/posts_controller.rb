@@ -16,7 +16,7 @@ class PostsController < ApplicationController
   def new
     @post = Post.new
     @post.tags.build
-    # binding.pry
+   # binding.pry
   end
 
   # GET /posts/1/edit
@@ -35,6 +35,7 @@ class PostsController < ApplicationController
         format.html { render action: 'new' }
         format.json { render json: @post.errors, status: :unprocessable_entity }
       end
+      #binding.pry
     end
   end
 
@@ -63,13 +64,13 @@ class PostsController < ApplicationController
   end
 
   private
-  # Use callbacks to share common setup or constraints between actions.
-  def set_post
-    @post = Post.find(params[:id])
-  end
+    # Use callbacks to share common setup or constraints between actions.
+    def set_post
+      @post = Post.find(params[:id])
+    end
 
-  # Never trust parameters from the scary internet, only allow the white list through.
-  def post_params
-    params.require(:post).permit(:name, :content, :tag_ids => [], :tags_attributes => [:name])
-  end
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def post_params
+      params.require(:post).permit(:name, :content, :tag_ids => [], :tags_attributes => [:name])
+    end
 end
