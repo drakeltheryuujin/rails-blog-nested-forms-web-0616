@@ -4,7 +4,7 @@ describe 'nested form for tag in post', :type => :feature do
   it 'can create a post without a new tag' do
     visit 'posts/new'
     within(all('.field').first) do
-      fill_in('Name', :with => @post1.name)
+        fill_in('Name', :with => @post1.name)
       fill_in('Content', :with => @post1.content)
     end
     click_button('Create Post')
